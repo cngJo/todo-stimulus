@@ -6,17 +6,39 @@
 			  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<title>Stimulus ToDo Example</title>
+
+		<link rel="stylesheet" href="./lib/mvp.css">
+
+		<style>
+			.left {
+				float: right;
+			}
+		</style>
 	</head>
 	<body>
-		<div data-controller="todo">
-			<form data-action="submit->todo#add">
-				<label for="new-task">New task</label>
-				<input type="text" id="new-task" name="task" data-todo-target="input">
-			</form>
-
-			<div data-todo-target="list"></div>
-		</div>
-
+		<header>
+			<h1>Stimulus.js ToDo Application</h1>
+		</header>
+		<main data-controller="todo">
+			<hr>
+			<section>
+				<form data-action="submit->todo#add">
+					<label for="new-task">New task</label>
+					<input type="text" id="new-task" name="task" data-todo-target="input">
+					<button type="submit">Add</button>
+				</form>
+			</section>
+			<section>
+				<aside>
+					<ul data-todo-target="list">
+<!--						<li>-->
+<!--							<span>Title</span>-->
+<!--							<button>X</button>-->
+<!--						</li>-->
+					</ul>
+				</aside>
+			</section>
+		</main>
 		<script type="module" src="app.js"></script>
 	</body>
 </html>

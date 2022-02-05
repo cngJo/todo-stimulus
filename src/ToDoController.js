@@ -38,15 +38,18 @@ export class ToDoController extends Controller {
      * @param {Task} task
      */
     addTaskToList(task) {
-        let element = document.createElement("DIV")
-        element.innerText = task.value;
+        let li = document.createElement("LI")
+
+        let span = document.createElement("SPAN")
+        span.innerText = task.value
 
         let deleteButton = document.createElement("BUTTON");
         deleteButton.innerText = "X";
         deleteButton.setAttribute("data-action", "click->todo#delete");
+        deleteButton.style.marginLeft = "1em";
 
-        element.appendChild(deleteButton);
-        this.listTarget.appendChild(element);
+        li.appendChild(span);
+        li.appendChild(deleteButton);
+        this.listTarget.appendChild(li);
     }
-
 }
